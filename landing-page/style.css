@@ -95,8 +95,11 @@ button:active{
 }
 
 .informationTab{
+    display: flex;
+    flex-direction: column;
     background: white;
     height: 512px;
+    justify-content: center;
 }
 
 .informationHeader{
