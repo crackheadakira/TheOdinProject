@@ -7,6 +7,7 @@ body {
 
 .top{
     display: flex;
+    margin-top: 16px;
     flex-direction: row;
     justify-content: space-around;
 }
@@ -65,8 +66,9 @@ a {
 
 button{
     display: flex;
+    align-items: center;
     justify-content: center;
-    border-radius: 5px;
+    border-radius: 10px;
     width: 125px;
     padding: 8px;
     color: white;
@@ -103,7 +105,6 @@ button:active{
 }
 
 .informationHeader{
-    margin-top: 32px;
     text-align: center;
     font-size: 36px;
     color: #1f2937;
@@ -137,4 +138,81 @@ button:active{
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+.quoteTab{
+    display: flex;
+    flex-direction: column;
+    background: #e5e7eb;
+    height: 512px;
+    justify-content: center;
+    align-items: center;
+}
+
+.quote{
+    text-align: justify;
+    font-size: 36px;
+    font-weight: lighter;
+    font-style: italic;
+    max-width: 45%;
+    margin-bottom: 16px;
+}
+
+.quoteBy{
+    display: flex;
+    font-size: 24px;
+    font-weight: bold;
+    color: #1f2937;
+    margin-left: 658px;
+}
+
+.signUpTab{
+    display: flex;
+    background: white;
+    height: 356px;
+    justify-content: center;
+    align-items: center;
+}
+
+.signUpM {
+    display: flex;
+    flex-direction: row;
+    padding: 16px;
+    padding-left: 32px;
+    align-items: center;
+    justify-content: space-around;
+    border-radius: 10px;
+    background: #3882f6;
+    width: 1280px;
+    height: 128px;
+}
+
+.ModalSubtext{
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+}
+
+.signUpM button{
+    display: flex;
+    border: 2px solid white;
+    height: 36px;
+}
+
+.footer{
+    font-size: 18px;
+    display: flex;
+    background: #1f2937;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    height: 128px;
+}
+
+.SUsubText {
+    font-weight: normal;
+    margin-top: 8px;
+    font-size: 16px;
+    margin-bottom: 8px;
+    color: white;
 }
