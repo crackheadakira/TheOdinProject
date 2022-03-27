@@ -1,7 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,900;1,300&display=swap');
 
-html {
+body {
     font-family: 'Roboto', sans-serif;
+    margin: 0;
 }
 
 .top{
@@ -43,7 +44,7 @@ a {
 .hero{
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: space-around;
     padding: 100px;
 }
 
@@ -65,8 +66,23 @@ a {
 button{
     display: flex;
     justify-content: center;
+    border-radius: 5px;
     width: 125px;
     padding: 8px;
+    color: white;
+    border: none;
+    font-weight: bold;
+    font-size: 16px;
+    background: #3882f6;
+}
+
+button:hover{
+    transition: 250ms;
+    filter: brightness(80%)
+}
+
+button:active{
+    transform: scale(105%)
 }
 
 .heroImage{
@@ -76,4 +92,46 @@ button{
     background: gray;
     height: auto;
     width: 512px;
+}
+
+.informationTab{
+    background: white;
+    height: 512px;
+}
+
+.informationHeader{
+    margin-top: 32px;
+    text-align: center;
+    font-size: 36px;
+    color: #1f2937;
+    font-weight: bolder;
+    margin-bottom: 64px;
+}
+
+.squareImage{
+    display: flex;
+    border-radius: 15px;
+    border: 4px solid #3882f6;
+    width: 192px;
+    height: 192px;
+}
+
+.squareSubtext{
+    text-align: center;
+    max-width: 192px;
+    margin-top: 8px;
+    margin-bottom: 32px;
+}
+
+.squareImages{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 64px;
+}
+
+.square{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
