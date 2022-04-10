@@ -23,27 +23,30 @@ function playRound() {
     }
 
     if (playerSelection === 1 && computerSelection === 3) {
-        console.log("The player wins!")
-        return ++playerWins;
+        ++playerWins;
+        return alert(`The player wins! You currently have ${playerWins} wins`)
     } else if (playerSelection === 3 && computerSelection === 1) {
-        console.log("The computer wins!")
-        return ++computerWins;
+        ++computerWins;
+        return alert(`The computer wins! They currently have ${computerWins} wins`)
     } else if (playerSelection > computerSelection) {
-        console.log("The player wins!");
-        return ++playerWins;
+        ++playerWins;
+        return alert(`The player wins! You currently have ${playerWins} wins`)
     } else if (computerSelection > playerSelection) {
-        console.log("The computer wins!");
-        return ++computerWins;
+        ++computerWins;
+        return alert(`The computer wins! They currently have ${computerWins} wins`)
     } else {
-        return console.log("The game was a tie!");
+        return alert("The game was a tie!");
     }
 }
 
 function game() {
     while (playerWins < 3 && computerWins < 3) {
         playRound()
-        console.log(`You have won ${playerWins} times!`)
-        console.log(`The computer has won ${computerWins} times!`)
+    }
+    if(playerWins === 3){
+        alert("You won best of 3!")
+    } else {
+        alert("You sadly lost against the computer in a best of 3!")
     }
 }
 
