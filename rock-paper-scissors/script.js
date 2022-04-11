@@ -5,8 +5,7 @@ function computerPlay() {
     return Math.round(Math.random() * (3 - 1) + 1);
 }
 
-function playRound() {
-    let playerSelection = prompt("What are you going to play? Rock, Paper or Scissors").toUpperCase()
+function playRound(playerSelection) {
     let computerSelection = computerPlay()
 
     switch (playerSelection) {
@@ -23,31 +22,35 @@ function playRound() {
     }
 
     if (playerSelection === 1 && computerSelection === 3) {
-        ++playerWins;
-        return alert(`The player wins! You currently have ${playerWins} wins`)
+        return ++playerWins;
     } else if (playerSelection === 3 && computerSelection === 1) {
-        ++computerWins;
-        return alert(`The computer wins! They currently have ${computerWins} wins`)
+        return ++computerWins;
     } else if (playerSelection > computerSelection) {
-        ++playerWins;
-        return alert(`The player wins! You currently have ${playerWins} wins`)
+        return ++playerWins;
     } else if (computerSelection > playerSelection) {
-        ++computerWins;
-        return alert(`The computer wins! They currently have ${computerWins} wins`)
+        return ++computerWins;
     } else {
-        return alert("The game was a tie!");
+        return "The game was a tie!";
     }
 }
 
-function game() {
-    while (playerWins < 3 && computerWins < 3) {
-        playRound()
-    }
-    if(playerWins === 3){
-        alert("You won best of 3!")
-    } else {
-        alert("You sadly lost against the computer in a best of 3!")
-    }
-}
+let results = document.querySelector('#results');
+let winner = document.querySelector('#winner')
 
-game()
+const buttons = document.querySelectorAll('button');
+let totalWins = `Player: ${playerWins} Computer: ${computerWins}`;
+results.textContent = totalWins;
+
+buttons.forEach((button) => {
+    button.addEventListener('click', () => {
+        playRound(button.id);
+        console.log(playerWins, computerWins)
+        totalWins = `Player: ${playerWins} Computer: ${computerWins}`;
+        results.textContent = totalWins;
+        if (playerWins === 5) {
+            winner.textContext = "You won!"
+        } else if (computerWins === 5) {
+            winner.textContent = `The computer won!`
+        }
+    });
+});
