@@ -1,56 +1,48 @@
 let computerWins = 0;
 let playerWins = 0;
+let gameWinner;
 
-function computerPlay() {
-    return Math.round(Math.random() * (3 - 1) + 1);
-}
+let gameResults = document.querySelector('.gameResults')
+let computerPicks = ["rock", "paper", "scissors"];
+let results = document.querySelector('.results');
+let winner = document.querySelector('.winner')
+let buttons = document.querySelectorAll('button');
+
+results.textContent = `Player: ${playerWins} Computer: ${computerWins}`;
 
 function playRound(playerSelection) {
-    let computerSelection = computerPlay()
+    let computerPick = Math.floor(Math.random() * computerPicks.length);
 
-    switch (playerSelection) {
-        case "ROCK":
-            playerSelection = 1;
-            break;
-        case "PAPER":
-            playerSelection = 2;
-            break;
-        case "SCISSORS":
-            playerSelection = 3;
-            break;
+    playerSelection = playerSelection.toLowerCase()
+    let computerSelection = computerPicks[computerPick].toLowerCase()
 
-    }
+    console.log(playerSelection, computerSelection)
 
-    if (playerSelection === 1 && computerSelection === 3) {
-        return ++playerWins;
-    } else if (playerSelection === 3 && computerSelection === 1) {
-        return ++computerWins;
-    } else if (playerSelection > computerSelection) {
-        return ++playerWins;
-    } else if (computerSelection > playerSelection) {
-        return ++computerWins;
-    } else {
-        return "The game was a tie!";
+    if (computerSelection == "rock" && playerSelection == "scissors" ||
+        computerSelection == "paper" && playerSelection == "rock" ||
+        computerSelection == "scissors" && playerSelection == "paper") {
+
+        gameWinner = "Computer won round!";
+        return computerWins++;
+
+    } else if (playerSelection == "rock" && computerSelection == "scissors" ||
+        playerSelection == "paper" && computerSelection == "rock" ||
+        playerSelection == "scissors" && computerSelection == "paper") {
+
+        gameWinner = "Player won round!"
+        return playerWins++;
+
+    } else if (playerSelection == computerSelection) {
+        return gameWinner = "Round was tie!"
     }
 }
-
-let results = document.querySelector('#results');
-let winner = document.querySelector('#winner')
-
-const buttons = document.querySelectorAll('button');
-let totalWins = `Player: ${playerWins} Computer: ${computerWins}`;
-results.textContent = totalWins;
 
 buttons.forEach((button) => {
     button.addEventListener('click', () => {
-        playRound(button.id);
-        console.log(playerWins, computerWins)
-        totalWins = `Player: ${playerWins} Computer: ${computerWins}`;
-        results.textContent = totalWins;
-        if (playerWins === 5) {
-            winner.textContext = "You won!"
-        } else if (computerWins === 5) {
-            winner.textContent = `The computer won!`
-        }
+        playRound(button.firstChild.data);
+        results.textContent = `Player: ${playerWins} Computer: ${computerWins}`;
+        gameResults.textContent = gameWinner;
+        if (playerWins == 5) { winner.textContent = `You were the winner!` }
+        else if (computerWins == 5) { winner.textContent = `The computer won!` }
     });
 });
