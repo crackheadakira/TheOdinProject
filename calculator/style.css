@@ -35,11 +35,16 @@ body {
     border: 2px solid black;
 }
 
+.sideButtons{
+    display: flex;
+    flex-wrap: wrap;
+    width: 101px;
+    gap: 4px;
+}
+
 .operatorButtons{
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    flex-wrap: wrap;
     gap: 4px;
 }
 
